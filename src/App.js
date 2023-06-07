@@ -1,23 +1,30 @@
 import logo from './logo.svg';
+import React  from 'react';
+import Chart from 'react-google-charts';
 import './App.css';
 
-function App() {
+const data = [
+  ['Year','Sales','Expenses','Profit'],
+  ['2016',1000,200,200],
+  ['2017',1100,400,500],
+  ['2018',900,300,200],
+  ['2019',1500,500,500],
+  ['2020',1000,400,600],
+]
+
+const opt = {
+  chart:{
+    title: "Company performance",
+    subtitle:"Example subtitle "
+
+  }
+}
+
+const  App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Google Charts
+      <Chart chartType='Bar' data={data} options={opt}/>
     </div>
   );
 }
